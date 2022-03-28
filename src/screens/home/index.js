@@ -1,14 +1,26 @@
-import { Text, View } from 'react-native'
+import {FlatList, View} from 'react-native';
 
-import React from 'react'
-import { styles } from './styles'
+import {CATEGORIES} from '../../constants/categories';
+import CategoryGrid from '../../components/molecules/category-grid';
+import React from 'react';
+import {styles} from './styles';
 
-const Home = () => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Home Screen</Text>
-        </View>
-    )
-}
+const Home = ({navigation}) => {
+  const handleSelectCategory = category => {
+    navigation.navigate('Category', {id: category.id, name: category.name});
+  };
+  const renderItem = ({item}) => (
+    <CategoryGrid item={item} onSelected={handleSelectCategory} />
+  );
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={CATEGORIES}
+        keyExtractor={item => item.id}
+        renderItem={renderItem}
+      />
+    </View>
+  );
+};
 
-export default Home
+export default Home;
