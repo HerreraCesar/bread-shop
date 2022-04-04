@@ -1,11 +1,12 @@
 import {Button, Image, Text, View} from 'react-native';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 import React from 'react';
 import {colors} from '../../constants/themes';
 import {styles} from './styles';
 
 const Products = ({navigation, route}) => {
-  const {product} = route.params;
+  const product = useSelector( state => state.products.selectedProduct)
   const {name, description, price, weight, photo} = product;
   return (
     <View style={styles.container}>
@@ -26,4 +27,4 @@ const Products = ({navigation, route}) => {
   );
 };
 
-export default Products;
+export default connect()(Products);
