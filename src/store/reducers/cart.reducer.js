@@ -5,9 +5,10 @@ const {ADD_ITEM, REMOVE_ITEM, CONFIRM_CART} = cartTypes;
 const initialState = {
   items: [],
   total: 0,
+  empty: true
 };
 
-const sumTotal = list =>
+const sumTotal = list => 
   list
     .map(item => item.quantity * item.price)
     .reduce((acc, curr) => acc + curr, 0);
@@ -25,11 +26,12 @@ const cartReducer = (state = initialState, action) => {
           ...state,
           items: updatedCart,
           total: sumTotal(updatedCart),
+          empty: false,
         };
       }
       const items = [...state.items].map(item => {
         if (item.id === action.item.id) {
-          item.quantity++;
+          item.quantity ++;
           return item;
         }
       });
@@ -38,17 +40,28 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         items,
         total: sumTotal(items),
+        empty: false,
       };
 
     case REMOVE_ITEM:
       const cleanCart = [...state.items].filter(item => item.id !== action.id);
+      let allEmpty = false    
+      if (cleanCart.length === 0) {
+        allEmpty = true        
+      }
       return {
         ...state,
         items: cleanCart,
         total: sumTotal(cleanCart),
+        empty: allEmpty,
       };
     case CONFIRM_CART:
-      return state;
+      return {
+        ...state,
+        items: [],
+        total: 0,
+        empty: true,
+      };
     default:
       return state;
   }

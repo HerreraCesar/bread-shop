@@ -11,7 +11,10 @@ const Products = ({navigation, route}) => {
   const product = useSelector(state => state.products.selectedProduct);
   const {name, description, price, weight, photo} = product;
 
-  const handleAddToCart = () => dispatch(addItem(product));
+  const handleAddToCart = () => {
+    dispatch(addItem(product))
+    navigation.navigate('Cart');
+  }
   return (
     <View style={styles.container}>
       <Image

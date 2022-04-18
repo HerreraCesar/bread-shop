@@ -31,7 +31,6 @@ export const styles = StyleSheet.create({
     fontFamily: fontFamily.black,
     marginHorizontal: margin.m,
     marginVertical: margin.m,
-
     color: 'black',
   },
   weight: {

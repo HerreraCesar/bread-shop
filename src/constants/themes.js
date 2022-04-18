@@ -18,9 +18,9 @@ export const fontFamily = {
 export const fontSize = {
   s: 12,
   m: 16,
-  l: 24,
-  xl: 32,
-  xxl: 44,
+  l: 20,
+  xl: 24,
+  xxl: 28,
 };
 
 export const padding = {

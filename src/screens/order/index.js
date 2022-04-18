@@ -12,7 +12,7 @@ const Order = () => {
   const orders = useSelector(state => state.order.orders);
   useEffect(() => {
     dispatch(getOrders(userId));
-  }, []);
+  }, [orders]);
   const onDelete = id => {
     dispatch(removeOrder(id));
   };

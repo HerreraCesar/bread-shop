@@ -13,13 +13,15 @@ const MainNavigator = () => {
       initialRouteName="ShopStack"
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle:{height: 60}
       }}>
       <TabStack.Screen
         name="ShopStack"
         component={ShopNavigator}
         options={{
           tabBarIcon: ({focused}) => (
-            <IonicIcons name={focused ? 'home' : 'home-outline'} size={20} />
+            <IonicIcons name={focused ? 'home' : 'home-outline'} size={30} />
           ),
           title: 'Shop',
         }}
@@ -29,7 +31,7 @@ const MainNavigator = () => {
         component={CartNavigator}
         options={{
           tabBarIcon: ({focused}) => (
-            <IonicIcons name={focused ? 'cart' : 'cart-outline'} size={20} />
+            <IonicIcons name={focused ? 'cart' : 'cart-outline'} size={30} />
           ),
           title: 'Cart',
         }}
@@ -39,7 +41,7 @@ const MainNavigator = () => {
         component={OrderNavigator}
         options={{
           tabBarIcon: ({focused}) => (
-            <IonicIcons name={focused ? 'list' : 'list-outline'} size={20} />
+            <IonicIcons name={focused ? 'list' : 'list-outline'} size={30} />
           ),
           title: 'Orders',
         }}

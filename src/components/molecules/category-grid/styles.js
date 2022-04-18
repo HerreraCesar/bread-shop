@@ -12,11 +12,11 @@ const {width, height} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: height / 4,
+    height: (height-60) / 4,
   },
   title: {
     fontFamily: fontFamily.black,
-    fontSize: fontSize.l,
+    fontSize: fontSize.xl,
     color: colors.dark,
   },
   touchable: {

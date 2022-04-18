@@ -11,13 +11,14 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: margin.m,
+    marginBottom: margin.m,
   },
   header: {
     fontFamily: fontFamily.bold,
   },
   name: {
     fontSize: fontSize.l,
+    color: colors.dark,
   },
   details: {
     flex: 1,
@@ -32,6 +33,6 @@ export const styles = StyleSheet.create({
   },
   price: {
     fontSize: fontSize.m,
-    fontFamily: fontFamily.regular,
+    fontFamily: fontFamily.bold,
   },
 });

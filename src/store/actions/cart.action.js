@@ -26,7 +26,7 @@ export const confirmCart = (cart, total, user) => {
       const result = await response.json();
       dispatch({
         type: CONFIRM_CART,
-        cart: result,
+        cart: [],
       });
     } catch (error) {
       console.log(error.message);

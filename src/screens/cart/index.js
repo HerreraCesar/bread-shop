@@ -1,9 +1,9 @@
 import {Button, FlatList, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {confirmCart, removeItem} from '../../store/actions/cart.action';
 import {connect, useDispatch, useSelector} from 'react-redux';
 
 import CartItem from '../../components/molecules/cart-item/index';
-import React from 'react';
 import {colors} from '../../constants/themes';
 import {styles} from './styles';
 
@@ -12,6 +12,7 @@ const Cart = ({navigation}) => {
   const items = useSelector(state => state.cart.items);
   const total = useSelector(state => state.cart.total);
   const user = useSelector(state => state.auth.userId);
+  const empty = useSelector(state => state.cart.empty);
 
   const handleDeleteItem = id => dispatch(removeItem(id));
 
@@ -36,6 +37,7 @@ const Cart = ({navigation}) => {
         title="Confirm"
         onPress={() => handleConfirmCart()}
         color={colors.primary}
+        disabled={empty}
       />
       <View style={styles.footer}>
         <Text style={styles.total}>Total</Text>

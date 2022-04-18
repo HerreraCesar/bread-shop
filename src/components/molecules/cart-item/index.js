@@ -17,7 +17,7 @@ const CartItem = ({item, onDelete}) => {
         <View>
           <Text style={styles.price}>$ {item.price}</Text>
         </View>
-        <View>
+        <View style={styles.button}>
           <Button
             title="Eliminar"
             onPress={() => onDelete(item.id)}
